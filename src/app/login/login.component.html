@@ -1,20 +1,6 @@
-<div class= "logWindow">
-    <!--1st-->
-    <div class="topbox">
-        <p><b>Sign In</b></p>
-    </div>
-    <!--2nd-->
-    <div class="email">
-        <label for="email">E-mail:</label>
-        <input type="email" placeholder="Enter E-mail" name="email" required>
-    </div>
-    <!--3rd-->
-    <div class="pw">
-        <label for="psw">Password:</label>
-        <input type="password" placeholder="Enter Password" name="password" required>
-    </div>
-    <!--4th-->
-    <div class="bottombox">
-        <button name='login' type='submit' >Login</button>
-    </div>
-</div>
+<mat-toolbar color="primary">Rio 2016 Summer Olympics  
+  <div class="buttonContainer">
+    <button mat-button [routerLink]="['/']">HOME</button>
+    <button mat-button [routerLink]="['/schedule']">SCHEDULE</button>
+  </div>
+</mat-toolbar>
