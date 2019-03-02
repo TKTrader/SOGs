@@ -9,10 +9,10 @@ import { ScheduleComponent } from './schedule/schedule.component';
 import { TicketsComponent } from './tickets/tickets.component';
 
 const routes: Routes = [
-  {path: '', component: LoginComponent},
-  {path: 'home', component: HomeComponent},
+  {path: '', component: HomeComponent},
   {path: 'athletes', component: AthletesComponent},
   {path: 'events', component: EventsComponent},
+  {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'schedule', component: ScheduleComponent},
   {path: 'tickets', component: TicketsComponent},
