@@ -1,13 +1,21 @@
 .logWindow{
+    position: relative;
+    margin-top: 11em;
+    margin-left: 43%;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-bottom: 1em;
+    width: 11em; 
+    
     display: grid;
     grid-template-columns: auto;
     grid-row-gap: 5px;
-    width: 20%;
 
-    border-style: solid;
+    background-color: #EEEEEE;
     border-width: 1px;
+    border-radius: 20px;
 }
 
-.logWindow topbox{
-    
+.logWindow button{
+    margin-left: 32%;
 }
