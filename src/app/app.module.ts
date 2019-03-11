@@ -9,7 +9,6 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AthletesComponent } from './athletes/athletes.component';
-import { ScheduleComponent } from './schedule/schedule.component';
 import { EventsComponent } from './events/events.component';
 import { TicketsComponent } from './tickets/tickets.component';
 
@@ -20,7 +19,6 @@ import { TicketsComponent } from './tickets/tickets.component';
     LoginComponent,
     RegisterComponent,
     AthletesComponent,
-    ScheduleComponent,
     EventsComponent,
     TicketsComponent
   ],
