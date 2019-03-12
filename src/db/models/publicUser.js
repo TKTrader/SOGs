@@ -1,7 +1,23 @@
-//These are our schema files for entering info
-
 //Example from tutorial dude
 // https://github.com/gugui3z24/meanstacktutorial/blob/master/app/models/user.js
+
+//user access levels??:
+// 0 : root user/admin
+// 1: employee
+// 2: athlete
+// 3: public
+
+// from our class Diagram
+// ID
+// username
+// first name
+// last name
+// phone
+// email
+
+//ADD:
+// user access level
+// password
 
 var mongoose = require('mongoose'); // Import Mongoose Package
 var Schema = mongoose.Schema; // Assign Mongoose Schema function to variable
@@ -64,16 +80,35 @@ var passwordValidator = [
     })
 ];
 
+// Phone Validator
+// How to navigate this in multiple countries with country codes? (rhetorical)
+//maybe no validation needed
+var phoneValidator = [
+    validate({
+        validator: 'matches',
+        arguments: /^[0-9]*$/,  //accepts any number of digits, no other characters
+        message: 'Phone number should be numbers only'
+    }),
+    validate({
+        validator: 'isLength',
+        arguments: [10, 13],
+        message: 'Phone number should be 10 to 13 digits'
+    })
+];
+
 // User Mongoose Schema
+//leaving in tokens, can delete as we figure out sessions and passwords
 var UserSchema = new Schema({
-    name: { type: String, required: true, validate: nameValidator },
-    username: { type: String, lowercase: true, required: true, unique: true, validate: usernameValidator },
+    firstname: { type: String, required: true, validate: nameValidator },
+    lastname: { type: String, required: true, validate: nameValidator },
+    username: { type: String, lowercase: false, required: true, unique: true, validate: usernameValidator },
     password: { type: String, required: true, validate: passwordValidator, select: false },
     email: { type: String, required: true, lowercase: true, unique: true, validate: emailValidator },
     active: { type: Boolean, required: true, default: false },
+    phone: { type: String, required: false, validate: phoneValidator}, //need to create Validator
     temporarytoken: { type: String, required: true },
     resettoken: { type: String, required: false },
-    permission: { type: String, required: true, default: 'moderator' }
+    permission: { type: String, required: true, default: 'public' } //access level
 });
 
 // Middleware to ensure password is encrypted before saving user to database
