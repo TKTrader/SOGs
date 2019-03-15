@@ -1,0 +1,57 @@
+<form><p><font size="5">Register</font></p>
+  <label for="fName" class="f-name">First Name:</label>
+  <input id="fName" type="text">
+ 
+  <label for="lName" class="l-name">Last Name:</label>
+  <input id="lName" type="text">
+ 
+  <label for="email" class="e-mail">E-mail:</label>
+  <input id="email" type="email">
+
+  <label for="pw" class="p-w">Password:</label>
+  <input id="pw" type="password">
+
+  <button>Submit</button>
+</form>
+
+<!-- <h1 class="page-header">Register</h1>
+
+<form [formGroup]="form" (submit)="onRegisterSubmit()">
+  <div class="form-group">
+    <label for="firstname">First Name</label>
+    <div>
+      <input type="text" name="firstname" class="form-control" autocomplete="off" placeholder="*FirstName" 
+      formControlName="firstname" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="lasstname">Last Name</label>
+    <div>
+      <input type="text" name="lastname" class="form-control" autocomplete="off" placeholder="*LastName" 
+      formControlName="lastname" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <div [ngClass]="{'has-error': (form.controls.email.errors && form.controls.email.dirty), 'has-success': !form.controls.email.errors}">
+      <input type="text" name="email" class="form-control" autocomplete="off" placeholder="*Email" 
+      formControlName="email" />
+      <ul class="help-block">
+        <li *ngIf="form.controls.email.errors?.required && form.controls.email.dirty">This field is required</li>
+      </ul>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <div>
+      <input type="text" name="password" class="form-control" autocomplete="off" placeholder="*Password" 
+      formControlName="password" />
+    </div>
+  </div>
+  <input type="submit" class="btn btn-primary" value="Submit" />
+</form>
+
+<p>First Name: {{ form.controls.firstname.value}}</p>
+<p>Last Name: {{ form.controls.lastname.value}}</p>
+<p>Email: {{ form.controls.email.value}}</p>
+<p>Password: {{ form.controls.password.value}}</p>> -->

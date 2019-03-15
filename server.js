@@ -1,31 +1,40 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const path = require('path');
-const http = require('http');
-const app = express();
+const express = require('express'); //initialize express application
+const app = express(); //initiate express application
+const router = express.Router();
+const mongoose = require('mongoose'); //MongoDB tool
+const config = require('./config/database');  // Mongoose configuration
+const path = require('path');  //NodeJS package for file paths
+const authentication = require('./routes/authentication')(router); // Import Authentication routes
+const bodyParser = require('body-parser'); //parse incoming request in middleware before handlers
+const cors = require('cors');
 
-// API file for interacting with MongoDB
-const api = require('./server/routes/api');
-
-// Parsers
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false}));
-
-// Angular DIST output folder
-app.use(express.static(path.join(__dirname, 'dist')));
-
-// API location
-app.use('/api', api);
-
-// Send all other requests to the Angular app
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist/index.html'));
+mongoose.Promise = global.Promise; //configuration
+mongoose.connect(config.uri, (err) => {
+    if (err) {
+        console.log('Could not connect to database: ', err);
+    } else {
+        // console.log(config.secret); //display secret for token
+        console.log('Connected to database: ' +config.db);
+    }
 });
 
-//Set Port
-const port = process.env.PORT || '3000';
-app.set('port', port);
+//Middleware
+app.use(cors({
+    origin: 'http://localhost:4200'  //we get rid of this when we go live
+}))
+//Provide static directory for front end
+app.use(bodyParser.urlencoded({extended: false}));
+//parse application
+app.use(bodyParser.json());
+app.use(express.static(__dirname + '/client/dist/client/'));
+app.use('/authentication', authentication);
 
-const server = http.createServer(app);
+// Connect server to index.html
+app.get('*', (req,res) => {
+    res.sendFile(path.join(__dirname + '/client/dist/client/index.html'));
+});
 
-server.listen(port, () => console.log(`Running on localhost:${port}`));
+// include connection confirmation on console
+app.listen(8080, () => {
+    console.log('Listening to my man on port 8080');
+});
