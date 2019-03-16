@@ -23,7 +23,7 @@ app.use('/authentication', authentication); //distinguish front and back end rou
 
 //DATABASE Connection
 mongoose.Promise = global.Promise; //configuration
-mongoose.connect(config.uri, (err) => {
+mongoose.connect(config.uri, {useNewUrlParser: true}, (err) => {//updated Parser code
     if (err) {
         console.log('Could not connect to database: ', err);
         //throw err; //crashes node server if MongoDB connect error
