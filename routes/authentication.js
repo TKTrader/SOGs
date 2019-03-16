@@ -2,6 +2,7 @@ const User = require('../models/publicUser');
 //problem, we have multiple types of users to authenticate
 //how to structure this? I guess all users will be in the single table as mentioned and 
 //be authenticated through this 
+// We may have to create a file like this for each user?
 
 //  CHARACTER VALIDATION HAS TO BE DONE, WORKING FOR NOW
 
