@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
       lastname: '',
       email: ['',Validators.required],
       password: ''
-    })
+    });//added semicolon
   }
 
   onRegisterSubmit() {
@@ -37,9 +37,13 @@ export class RegisterComponent implements OnInit {
 
     this.authService.registerUser(user).subscribe(data=> {
       console.log(data);
-    })
+    }); //added semicolon
   }
 
+    //other code from a tutorial, unsure
+  // addBusiness(person_name, business_name, business_gst_number) {
+  //   this.bs.addBusiness(person_name, business_name, business_gst_number);
+  // }
 
   ngOnInit() {
   }
