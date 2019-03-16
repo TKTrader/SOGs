@@ -45,5 +45,27 @@ module.exports = (router) => {
             }
         }
     });
+
+    router.get('/checkEmail/:email', (req, res) => {
+        // Check if email was provided in parameters
+        if (!req.params.email) {
+          res.json({ success: false, message: 'E-mail was not provided' }); // Return error
+        } else {
+          // Search for user's e-mail in database;
+          User.findOne({ email: req.params.email }, (err, user) => {
+            if (err) {
+              res.json({ success: false, message: err }); // Return connection error
+            } else {
+              // Check if user's e-mail is taken
+              if (user) {
+                res.json({ success: false, message: 'E-mail is already taken' }); // Return as taken e-mail
+              } else {
+                res.json({ success: true, message: 'E-mail is available' }); // Return as available e-mail
+              }
+            }
+          });
+        }
+      });
+
     return router;
 } 

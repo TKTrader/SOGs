@@ -6,8 +6,8 @@ const config = require('./config/database');  // Mongoose configuration
 const path = require('path');  //NodeJS package for file paths
 const authentication = require('./routes/authentication')(router); // Import Authentication routes
 const bodyParser = require('body-parser'); //parse incoming request in middleware before handlers
-const cors = require('cors');
-const morgan = require('morgan');
+const cors = require('cors'); // allows JS to use REST API served from different origin
+const morgan = require('morgan'); // output to console http requests
 
 //MIDDLEWARE
 //order is important!
@@ -23,6 +23,7 @@ app.use('/authentication', authentication); //distinguish front and back end rou
 
 //DATABASE Connection
 mongoose.Promise = global.Promise; //configuration
+mongoose.set('useCreateIndex',true); // fix deprecated ensureIndex()
 mongoose.connect(config.uri, {useNewUrlParser: true}, (err) => {//updated Parser code
     if (err) {
         console.log('Could not connect to database: ', err);
@@ -33,7 +34,7 @@ mongoose.connect(config.uri, {useNewUrlParser: true}, (err) => {//updated Parser
     }
 });
 
-// Connect server to index.html
+// Connect server to index.html of build (not dev)
 app.get('*', (req,res) => {
     res.sendFile(path.join(__dirname + '/client/dist/client/index.html'));
 });
