@@ -1,12 +1,27 @@
 <!--From Angular7Crud Tutorial-->
 <h2 class="page-header" align="center">User Registration</h2>
-<div class="card">
+
+<!--Card is a Content Container-->
+<div class="card"> 
+
+  <!--The building block of a card is the .card-body. A padded section within a card.-->
   <div class="card-body">
-    <form [formGroup]="angForm" novalidate>
+
+    <!--[Formgroup] - An angular reactive form group https://angular.io/guide/reactive-forms
+      The FormGroup directive listens for the submit event emitted by the form element and emits an ngSubmit event that you can bind to a callback function.
+      However instead of using ng submit it appears he uses a custom bootstrap button click and calls the adduser method from services/auth.services.ts 
+        novalidate - either html or BS, (guessing BS): custom Bootstrap form validation messages https://getbootstrap.com/docs/4.0/components/forms/-->
+    <form [formGroup]="angForm" novalidate> 
+      
+      <!--.form-group - BS, adds some structure to forms. Provides a flexible class that encourages proper grouping of labels, controls, optional help text, 
+        and form validation messaging-->
       <div class="form-group">
         <label class="col-md-4">First Name</label>
         <input type="text" class="form-control" formControlName="firstname" #firstname/>
       </div>
+      <!--Angular If, IfThen, IfElse
+          $pristine/$dirty tells you whether the user actually changed anything, while 
+          $touched/$untouched tells you whether the user has merely been there/visited.-->
       <div *ngIf="angForm.controls['firstname'].invalid && (angForm.controls['firstname'].dirty || angForm.controls['firstname'].touched)" class="alert alert-danger">
         <div *ngIf="angForm.controls['firstname'].errors.required">
           First Name is required.
@@ -49,13 +64,15 @@
         </div>
       </div> -->
       <div class="form-group">
+
+        <!--The (click) to the left of the equals sign identifies the button's click event as the target of the binding. -->
         <button (click)="addUser(firstname.value, lastname.value, email.value, password.value)"
         [disabled]="angForm.pristine || angForm.invalid" 
         class="btn btn-primary">Register</button>
       </div>
     </form>
   </div>
-</div>
+</div> <!--div class=card-->
 
 <!--Dan's Code, works-->
 <!-- <form><p><font size="5">Register</font></p>
