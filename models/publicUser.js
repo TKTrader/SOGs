@@ -119,9 +119,9 @@ const userSchema = new Schema({
     //permission: { type: String, required: true, default: 'public' } //access level
 });
 
-// Middleware to ensure password is encrypted before saving user to database
+// MIDDLEWARE to ensure password is encrypted before saving user to database
  userSchema.pre('save', function(next) {
-     var user = this;
+     var user = this;//const?
 
      if (!user.isModified('password')) return next(); // If password was not changed or is new, ignore middleware
 

@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule } from '@angular/http'; // not being used atm
+import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from './material.module';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -36,6 +37,7 @@ import { AuthService } from './services/auth.service';
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MaterialModule
   ],
