@@ -1,6 +1,6 @@
 <!--From Angular7Crud Tutorial-->
 <h2 class="page-header" align="center">User Registration</h2>
-
+<!--This is using Bootstrap 4-->
 <!--Card is a Content Container-->
 <div class="card"> 
 
@@ -17,7 +17,7 @@
         and form validation messaging-->
       <div class="form-group">
         <label class="col-md-4">First Name</label>
-        <input type="text" class="form-control" formControlName="firstname" #firstname/>
+        <input type="text" class="form-control" placeholder="*First Name" formControlName="firstname" #firstname/>
       </div>
       <!--Angular If, IfThen, IfElse
           $pristine/$dirty tells you whether the user actually changed anything, while 
@@ -29,7 +29,7 @@
       </div>
       <div class="form-group">
         <label class="col-md-4">Last Name </label>
-        <input type="text" class="form-control" formControlName="lastname" #lastname />
+        <input type="text" class="form-control" placeholder="*Last Name" formControlName="lastname" #lastname />
       </div>
       <div *ngIf="angForm.controls['lastname'].invalid && (angForm.controls['lastname'].dirty || angForm.controls['lastname'].touched)" class="alert alert-danger">
         <div *ngIf="angForm.controls['lastname'].errors.required">
@@ -38,7 +38,7 @@
       </div>
       <div class="form-group">
         <label class="col-md-4">Email</label>
-        <input type="text" class="form-control" formControlName="email" #email />
+        <input type="text" class="form-control" placeholder="*Email Address" formControlName="email" #email />
       </div>
       <div *ngIf="angForm.controls['email'].invalid && (angForm.controls['email'].dirty || angForm.controls['email'].touched)" class="alert alert-danger">
         <div *ngIf="angForm.controls['email'].errors.required">
@@ -47,7 +47,7 @@
       </div>
       <div class="form-group">
         <label class="col-md-4">Password</label>
-        <input type="text" class="form-control" formControlName="password" #password />
+        <input type="text" class="form-control" placeholder="*Password requires >= 2 Capitals, >= 2 special characters, at least 1 number, length >=8" formControlName="password" #password />
       </div>
       <div *ngIf="angForm.controls['password'].invalid && (angForm.controls['password'].dirty || angForm.controls['password'].touched)" class="alert alert-danger">
         <div *ngIf="angForm.controls['password'].errors.required">

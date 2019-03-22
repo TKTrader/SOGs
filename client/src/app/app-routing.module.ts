@@ -6,13 +6,14 @@ import { EventsComponent } from './events/events.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
+// Create routing for angualr components ("pages")
 const routes: Routes = [
-  {path: '', component: HomeComponent},
+  {path: '', component: HomeComponent}, // Home: do not change
   {path: 'athletes', component: AthletesComponent},
   {path: 'events', component: EventsComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  { path: '**', component: HomeComponent} //keep this line last in array
+  { path: '**', component: HomeComponent} // keep this line last in array
   // any other path redirects to home page
 ];
 
@@ -21,4 +22,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
- 
