@@ -8,22 +8,18 @@ import { Router } from '@angular/router';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-/*Oninit: A callback method that is invoked immediately after the default change 
- * detector has checked the directive's data-bound properties for the first time, and
- * before any of the view or content children have been checked. It is invoked only 
- * once when the directive is instantiated.
- */
 export class RegisterComponent implements OnInit {
+
   angForm: FormGroup;
   // variables for checking for duplicates in database
-  //message;
+  // message;
   // messageClass;
-  //emailValid; //this was used in the other code commented out
-  //emailMessage; //this was used in the other code commented out
+  emailValid;
+  emailMessage;
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService, //This is services component
+    private authService: AuthService,
     private router: Router
   ) {
     this.createForm();
@@ -51,7 +47,7 @@ export class RegisterComponent implements OnInit {
         Validators.maxLength(30), // Maximum length is 30 characters
         this.validateEmail // Custom validation
       ])],
-      // Password Input
+            // Password Input
       password: ['', Validators.compose([
         Validators.required, // Field is required
         Validators.minLength(8), // Minimum length is 8 characters

@@ -4,8 +4,6 @@ const User = require('../models/publicUser');
 //be authenticated through this 
 // We may have to create a file like this for each user?
 
-//  CHARACTER VALIDATION HAS TO BE DONE, WORKING FOR NOW
-
 module.exports = (router) => {
 //we use post for data that needs to be secure, or for creating new users
     router.post('/register', (req,res) => {
