@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">Rio 2016 Summer Olympics  
+  <div class="buttonContainer">
+  <button mat-button [routerLink]="['/']">HOME</button>
+  <button mat-button [routerLink]="['/events']">EVENT SCHEDULE</button>
+  <button mat-button [routerLink]="['/athletes']">ATHLETES</button>
+  <button mat-button [matMenuTriggerFor]="menu">LOGIN</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item [routerLink]="['/login']">LOGIN</button>
+    <button mat-menu-item [routerLink]="['/register']">REGISTER</button>
+    <!--In order to add athletes to the roster, or add events there should be a logic to check if the user 
+    is logged in and if they are an employee type user-->
+  </mat-menu>
+  </div>
+</mat-toolbar>
+
+<div class="container">
+  <router-outlet></router-outlet>  
+</div>
