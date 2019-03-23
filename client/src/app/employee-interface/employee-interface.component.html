@@ -1,3 +1,20 @@
-<p>
-  employee-interface works!
-</p>
+<!-- Dummy Layout for now, just for navigation-->
+<mat-toolbar color="primary">Employee Administration Panel (DUMMY BUTTONS) 
+  <div class="buttonContainer">
+  <button mat-button [routerLink]="['/events']">SCHEDULE EVENT</button>
+  <button mat-button [matMenuTriggerFor]="menu">ADD USER</button>
+    <mat-menu #menu="matMenu">
+      <button mat-button [routerLink]="['/athletes']">ADD ATHLETE</button>
+      <button mat-button [routerLink]="['/athletes']">ADD EMPLOYEE</button>    
+    </mat-menu>
+  <button mat-button [matMenuTriggerFor]="menu2">UPDATE SCHEDULE</button>
+  <mat-menu #menu2="matMenu">
+    <button mat-menu-item [routerLink]="['/login']">ADD EVENT</button>
+    <button mat-menu-item [routerLink]="['/register']">ADD CEREMONY</button>
+    <button mat-menu-item [routerLink]="['/employeeInt']">RESCHEDULE EVENT</button>
+    <button mat-menu-item [routerLink]="['/athleteInt']">ATHLETE INTERFACE</button>
+    <button mat-menu-item [routerLink]="['/publicInt']">PUBLIC INTERFACE</button>
+  </mat-menu>
+  <button mat-button [routerLink]="['/']">LOGOUT</button>
+  </div>
+</mat-toolbar>
