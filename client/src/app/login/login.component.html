@@ -1,12 +1,44 @@
-<p>
-  login works!
-</p>
-<form><p><font size="5">Login</font></p>
-  <label for="email" class="e-mail">E-mail:</label>
-  <input id="email" type="email">
+<br /><br />
+<h2 class="page-header" align="center">Sign In</h2>
 
-  <label for="pw" class="p-w">Password:</label>
-  <input id="pw" type="password">
-
-  <button>Submit</button>
-</form>
+<div class="row justify-content-center">
+  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+    <div class="card">
+      <div class="card-body">
+        <form [formGroup]="angForm" novalidate>
+          <!------------------------Email FormGroup------------------------->
+          <div class="form-group">
+            <label class="col-md-4">Email</label>
+            <input type="text" class="form-control" formControlName="email" #email />
+          </div>
+          <!----------------------ts - Function --------------------------------->
+          <div *ngIf="angForm.controls['email'].invalid && (angForm.controls['email'].dirty || angForm.controls['email'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['email'].errors.required">
+              Email Address is required.
+            </div>
+          </div>
+          <!---------------------Password FormGroup----------------------->
+          <div class="form-group">
+            <label class="col-md-4">Password</label>
+            <input type="text" class="form-control" formControlName="password" #password />
+          </div>
+          <!----------------------ts - Function --------------------------------->
+          <div *ngIf="angForm.controls['password'].invalid && (angForm.controls['password'].dirty || angForm.controls['password'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['password'].errors.required">
+              Password is required.
+            </div>
+          </div>
+          <!-----------------------Submit Button------------------------------->
+          <div class="form-group">
+            <!--The (click) to the left of the equals sign identifies the button's click event as the target of the binding. -->
+            <button (click)="onLoginSubmit(email.value, password.value)" [disabled]="angForm.pristine || angForm.invalid" class="btn btn-primary">Login</button>
+          </div>
+        </form>
+        <!--Card Body-->
+      </div>
+      <!--Card end-->
+    </div>
+    <!--bootstrap resize col-xs....-->
+  </div>
+  <!--row end-->
+</div>
