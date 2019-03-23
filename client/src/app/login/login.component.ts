@@ -43,15 +43,6 @@ loginUser(email, password){
   this.authService.loginUser(email, password);
 }
 
-  // here as an example
-  addUser(firstname, lastname, email, password) {
-    this.authService.addUser(firstname, lastname, email, password);
-  }
-
-
-
-
-
   ngOnInit() {//default
   }
 }
