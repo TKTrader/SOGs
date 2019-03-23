@@ -29,12 +29,12 @@ export class AuthService {
   }// add
 
   loginUser(email, password) {
-    //logic
+    // logic
     const obj2 = {};
-    this.http.post(`${this.domain}/authtication/register`, obj2)
+    this.http.post(`${this.domain}/authentication/register`, obj2)
       .subscribe(
         response => console.log('Done'),
-        (error)=>console.log(error)
+        (error) => console.log(error)
     );
   }
 }
