@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
+
 
 @Component({
   selector: 'app-login',
@@ -12,23 +14,24 @@ export class LoginComponent implements OnInit { //default
   angForm: FormGroup;
 
   //default method
-  constructor(private formBuilder: FormBuilder ) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService, ) {
       this.createForm();
    }
 
    createForm(){
      this.angForm = this.formBuilder.group({
        email: ['', Validators.compose([
-         Validators.required,
-         this.validateEmail
+         Validators.required
      ])],
        password: ['', Validators.compose([
-          Validators.required,
-          this.validatePassword
+          Validators.required
       ])],
    });
   }
 
+//cosmically working (running dynamically in bg is my guess)
   onLoginSubmit(){
     const user = {
       email: this.angForm.get('email').value,
@@ -36,14 +39,14 @@ export class LoginComponent implements OnInit { //default
     };
   }
 
-  validateEmail(){
+loginUser(email, password){
+  this.authService.loginUser(email, password);
+}
 
+  // here as an example
+  addUser(firstname, lastname, email, password) {
+    this.authService.addUser(firstname, lastname, email, password);
   }
-
-  validatePassword(){
-
-  }
-
 
 
 

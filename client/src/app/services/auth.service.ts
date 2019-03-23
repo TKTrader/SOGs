@@ -15,6 +15,7 @@ export class AuthService {
   constructor(
     private http: HttpClient
   ) { }
+
   // angular7Crud format
   addUser(firstname, lastname, email, password) {
     const obj = {
@@ -26,6 +27,10 @@ export class AuthService {
     this.http.post(`${this.domain}/authentication/register`, obj)
         .subscribe(res => console.log('Done'));
   }// add
+
+  loginUser(email, password){
+    //logic
+  }
 
   // registerUser(user) {
   //   return this.http.post(this.domain + '/authentication/register', user).map(res => res.json());

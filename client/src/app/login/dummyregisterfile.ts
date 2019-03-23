@@ -90,8 +90,6 @@ export class RegisterComponent implements OnInit {
 
   // Function to validate e-mail in proper format
   validateEmail(controls) {
-    // Create a regular expression
-    // tslint:disable-next-line:max-line-length
     const regExp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
     // Test email against regular expression
     if (regExp.test(controls.value)) {

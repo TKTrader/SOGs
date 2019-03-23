@@ -1,4 +1,4 @@
-<h2 class="page-header" align="center">Login</h2>
+<h2 class="page-header" align="center">Sign In</h2>
 <div class="card">
   <div class="card-body">
     <form [formGroup]="angForm" novalidate>
@@ -24,7 +24,11 @@
           Password is required.
         </div>
       </div>
-      <!---------------------------------------------------------------------->
+      <!-----------------------Submit Button------------------------------->
+      <div class="form-group">
+        <!--The (click) to the left of the equals sign identifies the button's click event as the target of the binding. -->
+        <button (click)="onLoginSubmit(email.value, password.value)" [disabled]="angForm.pristine || angForm.invalid" class="btn btn-primary">Login</button>
+      </div>
     </form>
     <!--card body-->
   </div>
