@@ -25,23 +25,33 @@ export class AuthService {
       password: password
     };
     this.http.post(`${this.domain}/authentication/register`, obj)
-        .subscribe(res => console.log('Done'));
+      .subscribe(response => console.log('Done'));
   }// add
 
-  loginUser(email, password){
+  loginUser(email, password) {
     //logic
+    const obj2 = {};
+    this.http.post(`${this.domain}/authtication/register`, obj2)
+      .subscribe(
+        response => console.log('Done'),
+        (error)=>console.log(error)
+    );
   }
+}
+
+
+
+
 
   // registerUser(user) {
   //   return this.http.post(this.domain + '/authentication/register', user).map(res => res.json());
   // }
 
-/*   // Function to check if username is taken
-  checkFirstname(username) {
-    return this.http.get(this.domain + 'authentication/checkUsername/' + username).map(res => res.json());
-  } */
+  /*   // Function to check if username is taken
+    checkFirstname(username) {
+      return this.http.get(this.domain + 'authentication/checkUsername/' + username).map(res => res.json());
+    } */
   // Function to check if e-mail is taken
   // checkEmail(email) {
   //   return this.http.get(this.domain + 'authentication/checkEmail/' + email).map(res => res.json());
   // }
-}
