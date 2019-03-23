@@ -17,21 +17,32 @@ export class LoginComponent implements OnInit { //default
    }
 
    createForm(){
-     this.angForm = this.formBuilder.group({ firstname: ['', Validators.compose([ Validators.required,  this.validateName ])], });
+     this.angForm = this.formBuilder.group({
+       email: ['', Validators.compose([
+         Validators.required,
+         this.validateEmail
+     ])],
+       password: ['', Validators.compose([
+          Validators.required,
+          this.validatePassword
+      ])],
+   });
   }
 
   onLoginSubmit(){
     const user = {
-      firstname: this.angForm.get('firstname').value,
-      lastname: this.angForm.get('lastname').value,
       email: this.angForm.get('email').value,
       password: this.angForm.get('password').value
-};
+    };
   }
 
+  validateEmail(){
 
+  }
 
+  validatePassword(){
 
+  }
 
 
 

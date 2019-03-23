@@ -2,14 +2,29 @@
 <div class="card">
   <div class="card-body">
     <form [formGroup]="angForm" novalidate>
+      <!------------------------Email FormGroup------------------------->
       <div class="form-group">
         <label class="col-md-4">Email</label>
-        <input type="text" class="form-control" formControlName="firstname" #firstname />
+        <input type="text" class="form-control" formControlName="email" #email />
       </div>
+      <!----------------------ts - Function --------------------------------->
+      <div *ngIf="angForm.controls['email'].invalid && (angForm.controls['email'].dirty || angForm.controls['email'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['email'].errors.required">
+          Email Address is required.
+        </div>
+      </div>
+      <!---------------------Password FormGroup----------------------->
       <div class="form-group">
         <label class="col-md-4">Password</label>
-        <input type="text" class="form-control" formControlName="firstname" #firstname />
+        <input type="text" class="form-control" formControlName="password" #password />
       </div>
+      <!----------------------ts - Function --------------------------------->
+      <div *ngIf="angForm.controls['password'].invalid && (angForm.controls['password'].dirty || angForm.controls['password'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['password'].errors.required">
+          Password is required.
+        </div>
+      </div>
+      <!---------------------------------------------------------------------->
     </form>
     <!--card body-->
   </div>
